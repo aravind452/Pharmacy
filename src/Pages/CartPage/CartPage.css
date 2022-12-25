@@ -11,7 +11,7 @@
   align-items: center;
   justify-content: center;
   width: 100%;
-  padding-bottom: 100px;
+  padding-bottom: 10px;
 }
 
 .cart-wrapper table,
@@ -52,10 +52,10 @@
 }
 
 .cart-container td button {
-  padding: 10px;
+  padding: 1px 5px;
   color: white;
-  background-color: #044599;
-  border-radius: 4px;
+  background-color: #fff;
+  border-radius: 50%;
   text-transform: capitalize;
 }
 @media (max-width: 500px) {
@@ -65,4 +65,33 @@
   .cart-container {
     width: 95%;
   }
+}
+
+.button-container {
+  margin: auto;
+  display: flex;
+  justify-content: flex-end;
+}
+
+.button-container button {
+  padding: 10px 30px;
+  margin-left: 20px;
+  color: white;
+  background-color: #044599;
+  border-radius: 4px;
+  margin-bottom: 50px;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.button-container button:hover {
+  background-color: #95bcf0;
+}
+.close-btn-cart {
+  background: white;
+}
+.close-btn-cart img {
+  width: 8px;
+  height: 8px;
+  position: relative;
 }

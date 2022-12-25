@@ -2,10 +2,51 @@ import { useEffect, useState } from "react";
 import Navbar from "../../Components/Navbar/Navbar";
 import { useProducts } from "../../ContextAPI/ProductsContext";
 import "./CartPage.css";
+import toast, { Toaster } from "react-hot-toast";
+import { useUserAuth } from "../../ContextAPI/UserAuthContext";
+
 const CartPage = () => {
   const [cartProducts, setCartProducts] = useState([]);
   const [totalValue, setTotalValue] = useState(0);
   const { products } = useProducts();
+
+  const { user } = useUserAuth();
+
+  const notify = () =>
+    toast.success("Order Placed Successfully : )", {
+      style: {
+        width: "500px",
+        padding: "15px",
+        background: "#044599",
+        color: "white",
+        fontSize: "18px",
+        fontWeight: "500",
+      },
+    });
+
+  const notifyNoProducts = () =>
+    toast.error("No Products in Cart, Shop Now!!!", {
+      style: {
+        width: "600px",
+        padding: "15px",
+        background: "#044599",
+        color: "white",
+        fontSize: "18px",
+        fontWeight: "500",
+      },
+    });
+
+  const notifyClearCart = () =>
+    toast.success("Cart is empty, Shop Now!!!", {
+      style: {
+        width: "600px",
+        padding: "15px",
+        background: "#044599",
+        color: "white",
+        fontSize: "18px",
+        fontWeight: "500",
+      },
+    });
 
   useEffect(() => {
     function getProducts() {
@@ -37,6 +78,50 @@ const CartPage = () => {
     cartItem = cartProducts.filter((prod) => prod.product_id !== product_id);
     setCartProducts(cartItem);
     localStorage.setItem("cartProducts", JSON.stringify(cartItem));
+  }
+
+  function generateID() {
+    var text = "";
+    var possible =
+      "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789";
+
+    for (var i = 0; i < 5; i++)
+      text += possible.charAt(Math.floor(Math.random() * possible.length));
+
+    return text;
+  }
+
+  function handleBuy() {
+    if (cartProducts) {
+      let buyOrder = {
+        order_id: "",
+        ordered_by: "",
+        product: "",
+      };
+
+      buyOrder.ordered_by = user.email;
+      buyOrder.order_id = generateID();
+      buyOrder.product = localStorage.getItem("cartProducts");
+
+      console.log(buyOrder);
+      notify();
+      setCartProducts("");
+      setTotalValue(0);
+      localStorage.removeItem("cartProducts");
+    } else if (!cartProducts) {
+      notifyNoProducts();
+    }
+  }
+
+  function handleClearCart() {
+    if (cartProducts) {
+      setCartProducts("");
+      localStorage.removeItem("cartProducts");
+      setTotalValue(0);
+      notifyClearCart();
+    } else if (!cartProducts) {
+      notifyNoProducts();
+    }
   }
 
   return (
@@ -83,8 +168,12 @@ const CartPage = () => {
                       onClick={() => {
                         handleRemove(item.product_id);
                       }}
+                      className="close-btn-cart"
                     >
-                      remove
+                      <img
+                        src="https://cdn-icons-png.flaticon.com/512/1/1766.png"
+                        alt="close"
+                      ></img>
                     </button>
                   </td>
                 </tr>
@@ -105,9 +194,12 @@ const CartPage = () => {
           </table>
         </div>
         <div className="button-container">
-          <button>Buy Now</button>
-          <button>Clear Cart</button>
+          <button onClick={handleBuy}>Buy Now</button>
+          <button onClick={handleClearCart}>Clear Cart</button>
         </div>
+      </div>
+      <div className="toastOrder">
+        <Toaster position="bottom-center" />
       </div>
     </div>
   );

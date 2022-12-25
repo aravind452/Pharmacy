@@ -5,6 +5,7 @@
   padding: 0 10%;
   margin: auto;
   position: fixed;
+  z-index: 2;
 }
 
 .header nav {
