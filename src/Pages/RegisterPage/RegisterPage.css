@@ -1,0 +1,65 @@
+.register-page-container {
+  width: 80%;
+  height: 80vh;
+  margin: auto;
+}
+
+.register-page-container form {
+  display: flex;
+  height: 100%;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.title-login {
+  font-size: 20px;
+  font-weight: 700;
+  text-transform: uppercase;
+  text-align: left;
+  padding-bottom: 5px;
+  margin-bottom: 30px;
+  border-bottom: 2px solid #044599;
+}
+
+.credentials-section {
+  display: flex;
+  flex-direction: column;
+}
+
+.credentials-section label {
+  font-size: 18px;
+  font-weight: 500;
+  width: 100%;
+  padding-bottom: 15px;
+}
+
+.credentials-section input {
+  font-size: 16px;
+  font-weight: 500;
+  padding: 10px;
+  border-radius: 4px;
+  border: 2px solid #95bcf0;
+  margin-bottom: 5px;
+  width: 300px;
+}
+
+.register-button {
+  font-size: 16px;
+  color: white;
+  background-color: #044599;
+  border-radius: 4px;
+  padding: 10px;
+  width: 300px;
+  margin-top: 15px;
+}
+
+.err-message {
+  color: rgb(175, 2, 2);
+  font-size: 12px;
+  margin-top: 0px;
+  margin-bottom: 10px;
+  position: relative;
+  top: -7px;
+  max-width: 250px;
+}

@@ -1,0 +1,112 @@
+.medi-card-container {
+  width: 80%;
+  margin: auto;
+  margin-top: 30px;
+  font-size: 10px;
+  margin-bottom: 100px;
+}
+
+.medi-card-container .home-title {
+  padding-bottom: 50px;
+  font-size: 50px;
+  color: grey;
+  text-transform: uppercase;
+}
+
+.medi-card {
+  height: 200px;
+  width: 250px;
+  display: flex;
+  flex-direction: column;
+  padding: 15px 15px;
+  justify-content: center;
+  border: 1px solid #044599;
+  border-radius: 3px;
+  margin: 15px;
+  margin-bottom: 20px;
+  background-color: #87b8f8;
+}
+.medi-card h1 {
+  padding: 10px 0px;
+  font-size: 22px;
+  text-transform: uppercase;
+  font-weight: 700;
+  color: rgb(255, 255, 255);
+}
+
+.medi-card h2 {
+  padding: 10px 0px;
+  font-size: 18px;
+  color: #4b4c4a;
+}
+.button-wrapper {
+  height: 100%;
+  width: 100%;
+}
+.medi-card button {
+  padding: 10px;
+  color: white;
+  background-color: #044599;
+  font-size: 18px;
+  border-radius: 4px;
+  width: 100%;
+  margin-top: 20px;
+  border: 2px solid #4b4c4a;
+  cursor: pointer;
+}
+
+.medi-card button:hover {
+  background-color: #0450b3;
+}
+
+.card-wrapper {
+  display: flex;
+  flex-wrap: wrap;
+  width: 100%;
+  margin: auto;
+}
+/*
+.medi-card h1 {
+  flex: 1;
+}
+
+.medi-card h2 {
+  flex: 1;
+}
+
+.medi-card button {
+  flex: 1;
+}
+*/
+.title-div {
+  width: 80%;
+  padding-top: 150px;
+  margin: auto;
+  padding-left: 15px;
+}
+
+.page-title {
+  color: #4b4c4a;
+  font-size: 70px;
+  opacity: 0.4;
+}
+
+.sub-tile {
+  color: #044599;
+  font-weight: 700;
+  position: relative;
+  padding-left: 10px;
+  top: -10px;
+}
+
+@media (max-width: 1000px) {
+  .medi-card {
+    width: 100%;
+  }
+}
+
+@media (max-width: 550px) {
+  .page-title {
+    font-size: 50px;
+  }
+}
