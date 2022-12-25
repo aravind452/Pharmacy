@@ -5,8 +5,9 @@ import useRegisterForm from "../../Hooks/useRegisterForm";
 import ValidateRegisterValues from "../../Utils/ValidateRegisterValues";
 
 const RegisterPage = () => {
-  const { handleChange, handleSubmit, userValues, errors, loader } =
-    useRegisterForm(ValidateRegisterValues);
+  const { handleChange, handleSubmit, userValues, errors } = useRegisterForm(
+    ValidateRegisterValues
+  );
   return (
     <div>
       <DefaultNavbar />

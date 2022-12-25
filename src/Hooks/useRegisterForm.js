@@ -8,7 +8,7 @@ const useRegisterForm = (Validate) => {
   const [errors, setErrors] = useState({});
 
   const { userDetails } = useUserDetails();
-  let navigate = useNavigate();
+  //let navigate = useNavigate();
 
   const [userValues, setUserValues] = useState({
     user_id: "",
@@ -47,11 +47,10 @@ const useRegisterForm = (Validate) => {
       // database post method fetch("")
 
       console.log(userValues);
-      {
-        /*.then(()=>{
-        navigate("/")
-      })*/
-      }
+
+      //  .then(()=>{
+      //  navigate("/")
+      //})
     }
 
     if (Object.keys(errors).length === 0 && isSubmit) {

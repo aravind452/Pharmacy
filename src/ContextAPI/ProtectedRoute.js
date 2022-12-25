@@ -11,7 +11,7 @@ function ProtectedRoute({ children }) {
     if (!user) {
       navigate("/");
     }
-  }, []);
+  }, [user]); //react-hooks/exhaustive-deps
 
   if (user) {
     return children;

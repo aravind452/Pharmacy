@@ -5,7 +5,7 @@ import { useState } from "react";
 import { useUserAuth } from "../../ContextAPI/UserAuthContext";
 
 const LoginPage = () => {
-  const { user, setUser } = useUserAuth();
+  const { setUser } = useUserAuth();
 
   let navigate = useNavigate();
   const [userCredentials, setUserCredentials] = useState({
@@ -28,7 +28,7 @@ const LoginPage = () => {
   function handleSubmit(e) {
     e.preventDefault();
     if (userCredentials.email === "admin@gmail.com") {
-      if (userCredentials.password == "12345678") {
+      if (userCredentials.password === "aravind") {
         setUser(userCredentials);
         navigate("/home");
       } else {
