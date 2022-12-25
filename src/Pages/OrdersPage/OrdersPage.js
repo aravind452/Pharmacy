@@ -5,6 +5,7 @@ const OrdersPage = () => {
   return (
     <div>
       <Navbar />
+      <div></div>
     </div>
   );
 };
