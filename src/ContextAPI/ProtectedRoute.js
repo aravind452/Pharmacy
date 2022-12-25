@@ -11,7 +11,7 @@ function ProtectedRoute({ children }) {
     if (!user) {
       navigate("/");
     }
-  }, [user]); // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [user]); // eslint-disable-line react-hooks/exhaustive-deps
 
   if (user) {
     return children;
