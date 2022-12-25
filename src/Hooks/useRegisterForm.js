@@ -1,5 +1,4 @@
 import { useState, useEffect } from "react";
-import { useNavigate } from "react-router-dom";
 import { useUserDetails } from "../ContextAPI/UserDetailsContext";
 
 const useRegisterForm = (Validate) => {
@@ -8,7 +7,6 @@ const useRegisterForm = (Validate) => {
   const [errors, setErrors] = useState({});
 
   const { userDetails } = useUserDetails();
-  //let navigate = useNavigate();
 
   const [userValues, setUserValues] = useState({
     user_id: "",
