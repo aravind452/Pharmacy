@@ -8,7 +8,9 @@ export default function ValidateRegisterValues(values, allUsers) {
   }
   if (!values.email.trim()) {
     errors.email = "Please enter your Email Address";
+    //eslint-disable-next-line
   } else if (!/^[\w-\.]+@([\w-]+\.)+[\w-]{2,4}$/.test(values.email)) {
+    //eslint-disable-line
     errors.email = "Invalid Email Address";
   } else if (allUsers.filter((user) => user.email === values.email).length) {
     errors.email = "Email Address already exists";
