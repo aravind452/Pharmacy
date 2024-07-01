@@ -1,5 +1,6 @@
 import { useState, useEffect } from "react";
 import { useUserDetails } from "../ContextAPI/UserDetailsContext";
+import { useNavigate } from "react-router-dom";
 
 const useRegisterForm = (Validate) => {
   const [loader, setLoader] = useState(false);
@@ -7,6 +8,7 @@ const useRegisterForm = (Validate) => {
   const [errors, setErrors] = useState({});
 
   const { userDetails } = useUserDetails();
+  const navigate = useNavigate();
 
   const [userValues, setUserValues] = useState({
     user_id: "",
@@ -45,9 +47,10 @@ const useRegisterForm = (Validate) => {
       // database post method fetch("")
 
       console.log(userValues);
+      navigate("/home");
 
       //  .then(()=>{
-      //  navigate("/")
+
       //})
     }
 
